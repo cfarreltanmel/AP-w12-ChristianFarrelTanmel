@@ -22,14 +22,14 @@
                     <th colspan="2" class="absent-header">Absent Students</th>
                 </tr>
                 <tr>
-                    <th>NIM</th>
+                    <th>ID</th>
                     <th>Name</th>
                 </tr>
             </thead>
             <tbody>
                 <tr th:each="student : ${absentStudents}">
-                    <td th:text="${student.id}">1</td>
-                    <td th:text="${student.name}">John Doe</td>
+                    <td th:text="${student.id}">2086022510011</td>
+                    <td th:text="${student.name}">Dragon</td>
                 </tr>
                 <tr th:if="${#lists.isEmpty(absentStudents)}">
                     <td colspan="2">No absent students.</td>
@@ -42,14 +42,14 @@
                     <th colspan="2" class="present-header">Present Students</th>
                 </tr>
                 <tr>
-                    <th>NIM</th>
+                    <th>ID</th>
                     <th>Name</th>
                 </tr>
             </thead>
             <tbody>
                 <tr th:each="student : ${presentStudents}">
-                    <td th:text="${student.id}">2</td>
-                    <td th:text="${student.name}">Jane Smith</td>
+                    <td th:text="${student.id}">2086022510012</td>
+                    <td th:text="${student.name}">Yanto</td>
                 </tr>
                 <tr th:if="${#lists.isEmpty(presentStudents)}">
                     <td colspan="2">No present students.</td>
