@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Attendance System</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        table { border-collapse: collapse; width: 45%; margin-bottom: 20px; float: left; margin-right: 5%; }
+        th, td { border: 1px solid #dddddd; text-align: left; padding: 8px; }
+        th { background-color: #f2f2f2; }
+        .absent-header { background-color: #ffcccc; }
+        .present-header { background-color: #ccffcc; }
+        .clearfix::after { content: ""; clear: both; display: table; }
+    </style>
+</head>
+<body>
+    <h1>Class Attendance</h1>
+    <div class="clearfix">
+        <table>
+            <thead>
+                <tr>
+                    <th colspan="2" class="absent-header">Absent Students</th>
+                </tr>
+                <tr>
+                    <th>NIM</th>
+                    <th>Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="student : ${absentStudents}">
+                    <td th:text="${student.id}">1</td>
+                    <td th:text="${student.name}">John Doe</td>
+                </tr>
+                <tr th:if="${#lists.isEmpty(absentStudents)}">
+                    <td colspan="2">No absent students.</td>
+                </tr>
+            </tbody>
+        </table>
+        <table>
+            <thead>
+                <tr>
+                    <th colspan="2" class="present-header">Present Students</th>
+                </tr>
+                <tr>
+                    <th>NIM</th>
+                    <th>Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="student : ${presentStudents}">
+                    <td th:text="${student.id}">2</td>
+                    <td th:text="${student.name}">Jane Smith</td>
+                </tr>
+                <tr th:if="${#lists.isEmpty(presentStudents)}">
+                    <td colspan="2">No present students.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
