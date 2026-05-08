@@ -12,11 +12,11 @@ public class StudentController {
     @Autowired
     private StudentRepo studentRepo;
     @GetMapping("/")
-    public String viewAttendance(Model model) {
+    public String viewAttendance(Model Student) {
         List<Student> presentStudents = studentRepo.findByIsPresent(true);
         List<Student> absentStudents = studentRepo.findByIsPresent(false);
-        model.addAttribute("presentStudents", presentStudents);
-        model.addAttribute("absentStudents", absentStudents);
+        Student.addAttribute("presentStudents", presentStudents);
+        Student.addAttribute("absentStudents", absentStudents);
         return "index";
     }
 }
